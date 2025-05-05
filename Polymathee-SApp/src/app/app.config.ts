@@ -1,5 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http'; // Importez provideHttpClient
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideAnimationsAsync(),
+    provideHttpClient(), // Assurez-vous que cette ligne est présente dans le tableau providers
     providePrimeNG({
       theme: {
         preset: Aura
