@@ -5,6 +5,7 @@ import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { TagModule } from 'primeng/tag';
+
 @Component({
   selector: 'app-top-schools',
   standalone: true,
