@@ -1,0 +1,81 @@
+<div class="card">
+    <p-table #dt [value]="specialties" dataKey="libelle_specialite" [paginator]="true" [rows]="10"
+        [rowsPerPageOptions]="[10, 25, 50]" [globalFilterFields]="['type_diplome', 'libelle_specialite']"
+        [loading]="loading" [tableStyle]="{ 'min-width': '60rem' }">
+        <!-- Barre de recherche -->
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <p-iconfield iconPosition="left" class="ml-auto">
+                    <p-inputicon>
+                        <i class="pi pi-search"></i>
+                    </p-inputicon>
+                    <!--     <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                        placeholder="Rechercher un mot-clé" />-->
+                </p-iconfield>
+            </div>
+        </ng-template>
+
+        <!-- En-tête du tableau -->
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Type de Diplôme</th>
+                <th>Spécialité</th>
+                <th>Nombre de Formations</th>
+            </tr>
+            <tr>
+                <th>
+                    <p-columnFilter type="text" field="type_diplome" placeholder="Filtrer par diplôme"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="libelle_specialite"
+                        placeholder="Filtrer par spécialité"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="numeric" field="nombre_formations" placeholder="Min / Max"
+                        display="menu"></p-columnFilter>
+                </th>
+            </tr>
+        </ng-template>
+
+        <!-- Corps du tableau -->
+        <ng-template pTemplate="body" let-apprenti>
+            <tr>
+                <td>{{ apprenti.type_diplome }}</td>
+                <td>{{ apprenti.libelle_specialite }}</td>
+                <td>{{ apprenti.nombre_formations }}</td>
+            </tr>
+        </ng-template>
+
+        <!-- Message si aucune donnée -->
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="3">Aucune donnée trouvée.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+
+
+
+<!-- apprentis.component.html 
+<h2>Spécialités les plus courantes par type de diplôme</h2>
+
+<p-table [value]="specialties" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Type de Diplôme</th>
+            <th>Spécialité</th>
+            <th>Nombre de Formations</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-row>
+        <tr>
+            <td>{{ row.type_diplome }}</td>
+            <td>{{ row.libelle_specialite }}</td>
+            <td>{{ row.nombre_formations }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+-->

@@ -10,10 +10,12 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Exemple de méthode pour récupérer des données depuis votre API
-  getApprentisData(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/user/test-db`); // Adaptez l'endpoint de votre API
+  /**
+   * 
+   * @returns Json
+   */
+  getMostCommonSpecialties(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/apprentis/most-common-specialties`); // Adaptez l'endpoint de votre API
   }
 
-  // Vous pouvez ajouter d'autres méthodes pour d'autres endpoints (POST, PUT, DELETE, etc.)
 }

@@ -7,9 +7,11 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { ApprentisGraphComponent } from './apprentis-graph/apprentis-graph.component';
 import { ApprentisComponent } from './apprentis/apprentis.component';
+import { MostCommonSpecialtiesComponent } from './most-common-specialties/most-common-specialties.component'
 
 const appRoutes: Routes = [
   { path: 'apprentis', component: ApprentisComponent }, // Ajoutez cette nouvelle route
+  { path: 'specialites-plus-courantes', component: MostCommonSpecialtiesComponent },
 
 ];
 

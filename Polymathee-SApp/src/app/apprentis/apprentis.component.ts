@@ -23,7 +23,7 @@ export class ApprentisComponent implements OnInit {
   }
 
   loadApprentis(): void {
-    this.apiService.getApprentisData().subscribe({
+    this.apiService.getMostCommonSpecialties().subscribe({
       next: (data) => {
         this.apprentis = data;
         console.log('Données reçues de l\'API :', data)
