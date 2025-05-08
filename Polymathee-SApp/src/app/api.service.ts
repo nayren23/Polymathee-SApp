@@ -44,5 +44,11 @@ export class ApiService {
     const url = `${this.apiUrl}/apprentis/organismes-gestion`;
     return this.http.get<any[]>(url, { params });
   }
+  getSpecialitesHandicap(annee: string): Observable<any[]> {
+    const params = { annee };
+    const url = `${this.apiUrl}/apprentis/specialites-handicap`;
+    return this.http.get<any[]>(url, { params });
+  }
+
 
 }

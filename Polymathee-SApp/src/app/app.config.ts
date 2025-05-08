@@ -12,7 +12,7 @@ import { TopSchoolsComponent } from './top-schools/top-schools.component'
 import { VilleJeunesComponent } from './ville-jeunes/ville-jeunes.component'
 import { DureeFormationComponent } from './duree-formation/duree-formation.component'
 import { OrganismesGestionComponent } from './organismes-gestion/organismes-gestion.component'
-
+import { SpecialitesHandicapComponent } from './specialites-handicap/specialites-handicap.component'
 
 const appRoutes: Routes = [
   { path: 'apprentis', component: ApprentisComponent }, // Ajoutez cette nouvelle route
@@ -21,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'ville-jeunes', component: VilleJeunesComponent },
   { path: 'duree-formation', component: DureeFormationComponent },
   { path: 'organismes-gestion', component: OrganismesGestionComponent },
+  { path: 'specialite-handicap', component: SpecialitesHandicapComponent },
 
 
 ];

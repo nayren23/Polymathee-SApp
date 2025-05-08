@@ -1,0 +1,39 @@
+<div class="card">
+    <h2 class="text-center">Spécialités avec la Plus Grande Proportion de Jeunes en Situation de Handicap</h2>
+
+    <p-dropdown [options]="annees" [(ngModel)]="selectedAnnee" placeholder="Sélectionner une année"
+        [showClear]="true"></p-dropdown>
+
+    <div>
+        <button pButton label="Envoyer" icon="pi pi-send" (click)="fetchSpecialitesHandicap()"
+            [disabled]="!selectedAnnee"></button>
+    </div>
+
+    <div *ngIf="!noData" class="chart-container p-mt-4">
+        <p-chart type="radar" [data]="radarChartData" style="width: 100%; height: 300px;"></p-chart>
+    </div>
+
+    <p-table *ngIf="!noData && !loading" [value]="specialitesHandicapData" [paginator]="true" [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 25]" [loading]="loading">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="libelle_specialite">Spécialité <p-sortIcon field="libelle_specialite"></p-sortIcon>
+                </th>
+                <th pSortableColumn="pourcentage_handicap">Pourcentage Handicap (%) <p-sortIcon
+                        field="pourcentage_handicap"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-row>
+            <tr>
+                <td>{{ row.libelle_specialite }}</td>
+                <td>{{ row.pourcentage_handicap }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!-- Affichage du message si aucune donnée n'est disponible -->
+    <div *ngIf="noData" class="alert alert-warning">
+        <p-message severity="warn">Attention aucune donnée disponible pour cette sélection.</p-message>
+    </div>
+</div>

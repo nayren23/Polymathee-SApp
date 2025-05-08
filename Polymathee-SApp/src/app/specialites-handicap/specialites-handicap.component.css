@@ -1,0 +1,12 @@
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    /* Limite la largeur maximale du graphique */
+    height: 500px;
+    /* Ajuste la hauteur du graphique */
+    margin: 0 auto;
+    /* Centre le graphique horizontalement */
+}
