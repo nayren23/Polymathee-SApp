@@ -1,0 +1,11 @@
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    /* Augmenter la largeur maximale */
+    height: 500px;
+    /* Ajuster la hauteur selon tes préférences */
+    margin: 0 auto;
+}

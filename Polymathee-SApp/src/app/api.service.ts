@@ -39,4 +39,10 @@ export class ApiService {
     return this.http.get<any[]>(url, { params });
   }
 
+  getOrganismesGestion(annee: string): Observable<any[]> {
+    const params = { annee };
+    const url = `${this.apiUrl}/apprentis/organismes-gestion`;
+    return this.http.get<any[]>(url, { params });
+  }
+
 }

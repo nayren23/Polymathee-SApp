@@ -1,0 +1,38 @@
+<div class="card">
+    <h2 class="text-center">Organismes de Gestion avec le Plus Grand Nombre d'Établissements Affiliés</h2>
+
+    <p-dropdown [options]="annees" [(ngModel)]="selectedAnnee" placeholder="Sélectionner une année"
+        [showClear]="true"></p-dropdown>
+
+    <div>
+        <button pButton label="Envoyer" icon="pi pi-send" (click)="fetchOrganismesGestion()"
+            [disabled]="!selectedAnnee"></button>
+    </div>
+
+    <div *ngIf="!noData" class="chart-container p-mt-4">
+        <p-chart type="bar" [data]="barChartData" style="width: 100%; height: 500px;"></p-chart>
+    </div>
+
+    <p-table *ngIf="!noData && !loading" [value]="organismesGestionData" [paginator]="true" [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 25]" [loading]="loading">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="libelle_og">Organisme de Gestion <p-sortIcon field="libelle_og"></p-sortIcon></th>
+                <th pSortableColumn="nombre_etablissements_affilies">Nombre d'Établissements Affilés <p-sortIcon
+                        field="nombre_etablissements_affilies"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-row>
+            <tr>
+                <td>{{ row.libelle_og }}</td>
+                <td>{{ row.nombre_etablissements_affilies }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!-- Affichage du message si aucune donnée n'est disponible -->
+    <div *ngIf="noData" class="alert alert-warning">
+        <p-message severity="warn">Attention aucune donnée disponible pour cette sélection.</p-message>
+    </div>
+</div>
