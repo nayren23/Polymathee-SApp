@@ -18,4 +18,9 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/apprentis/most-common-specialties`); // Adaptez l'endpoint de votre API
   }
 
+
+  getTopSchoolsByDiplomas(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/apprentis/top-schools-by-diplomas`);
+  }
+
 }

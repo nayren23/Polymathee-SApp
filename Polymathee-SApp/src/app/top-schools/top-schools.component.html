@@ -1,0 +1,60 @@
+<div class="card">
+    <h2 class="text-center text-white" style="text-align: center;">Top Établissements en 2024-2025</h2>
+    <p class="text-center text-white mb-4" style="text-align: center;">
+        Nombre de diplômes différents proposés par chaque établissement.
+    </p>
+
+
+
+    <!-- Tableau filtrable avec deux colonnes -->
+    <div class="card">
+        <p-table #dt [value]="data" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+            [loading]="loading" [globalFilterFields]="['etablissement']" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <!--   <p-iconfield iconPosition="left" class="ml-auto">
+                        <p-inputicon>
+                            <i class="pi pi-search"></i>
+                        </p-inputicon>
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                            placeholder="Rechercher un établissement..." />
+                    </p-iconfield> -->
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>
+                        <p-columnFilter type="text" field="etablissement" placeholder="Nom établissement"
+                            ariaLabel="Filtrer établissement"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="numeric" field="nombre_diplomes_differents" placeholder="Nb diplômes"
+                            ariaLabel="Filtrer diplômes"></p-columnFilter>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Établissement</th>
+                    <th>Nb diplômes différents</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-row>
+                <tr>
+                    <td>{{ row.etablissement }}</td>
+                    <td>{{ row.nombre_diplomes_differents }}</td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="2">Aucun établissement trouvé.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <!-- Graphique horizontal -->
+    <div class="card flex justify-center mb-6">
+        <p-chart type="bar" [data]="chartData" [options]="chartOptions" class="w-full md:w-[60rem]" />
+    </div>
+</div>
