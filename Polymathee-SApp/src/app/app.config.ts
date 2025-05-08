@@ -10,12 +10,16 @@ import { ApprentisComponent } from './apprentis/apprentis.component';
 import { MostCommonSpecialtiesComponent } from './most-common-specialties/most-common-specialties.component'
 import { TopSchoolsComponent } from './top-schools/top-schools.component'
 import { VilleJeunesComponent } from './ville-jeunes/ville-jeunes.component'
+import { DureeFormationComponent } from './duree-formation/duree-formation.component'
+
 
 const appRoutes: Routes = [
   { path: 'apprentis', component: ApprentisComponent }, // Ajoutez cette nouvelle route
   { path: 'specialites-plus-courantes', component: MostCommonSpecialtiesComponent },
   { path: 'top-etablissements', component: TopSchoolsComponent },
   { path: 'ville-jeunes', component: VilleJeunesComponent },
+  { path: 'duree-formation', component: DureeFormationComponent },
+
 
 ];
 

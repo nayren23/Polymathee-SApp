@@ -1,0 +1,39 @@
+<div class="card p-4">
+    <h2 class="text-center">Comparaison de la Durée Moyenne des Formations par Type de Diplôme</h2>
+
+    <p-dropdown [options]="annees" [(ngModel)]="selectedAnnee" placeholder="Sélectionner une année"
+        [showClear]="true"></p-dropdown>
+
+    <div class="p-d-flex p-jc-center p-mt-4">
+        <button pButton label="Envoyer" icon="pi pi-send" (click)="fetchDureeFormation()"
+            [disabled]="!selectedAnnee"></button>
+    </div>
+
+
+
+    <div *ngIf="!noData" class="chart-container p-mt-4">
+        <p-chart type="bar" [data]="radarChartData" style="width: 100%; height: 100%;"></p-chart>
+    </div>
+
+
+    <p-table *ngIf="!noData && !loading" [value]="dureeFormationData" [paginator]="true" [rows]="10"
+        [rowsPerPageOptions]="[5, 10, 25]" [loading]="loading">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="type_diplome">Type de Diplôme <p-sortIcon field="type_diplome"></p-sortIcon></th>
+                <th pSortableColumn="duree_moyenne_mois">Durée Moyenne (mois) <p-sortIcon
+                        field="duree_moyenne_mois"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row>
+            <tr>
+                <td>{{ row.type_diplome }}</td>
+                <td>{{ row.duree_moyenne_mois }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <div *ngIf="noData" class="alert alert-warning">
+        <p-message severity="warn">Attention aucune donnée disponible pour cette sélection.</p-message>
+    </div>
+</div>

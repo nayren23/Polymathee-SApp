@@ -30,7 +30,13 @@ export class ApiService {
   getVillesByDiplomeEtAnnee(diplome: string, annee: string): Observable<any[]> {
     const params = { diplome, annee };
     const url = `${this.apiUrl}/apprentis/ville-jeunes`;
-    console.log('Requête envoyée à :', url, 'avec les paramètres:', params);
     return this.http.get<any[]>(url, { params });
   }
+
+  getDureeFormation(annee: string): Observable<any[]> {
+    const params = { annee };
+    const url = `${this.apiUrl}/apprentis/duree-formation`;
+    return this.http.get<any[]>(url, { params });
+  }
+
 }
