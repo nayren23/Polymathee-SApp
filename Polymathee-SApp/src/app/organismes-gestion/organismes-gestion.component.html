@@ -9,8 +9,8 @@
             [disabled]="!selectedAnnee"></button>
     </div>
 
-    <div *ngIf="!noData" class="chart-container p-mt-4">
-        <p-chart type="bar" [data]="barChartData" style="width: 100%; height: 500px;"></p-chart>
+    <div *ngIf="!noData" class="flex justify-content-center mt-4 mb-4">
+        <p-chart type="bar" [data]="barChartData" class="w-5 align-items-center"></p-chart>
     </div>
 
     <p-table *ngIf="!noData && !loading" [value]="organismesGestionData" [paginator]="true" [rows]="10"

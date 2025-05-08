@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApprentisGraphComponent } from './apprentis-graph.component';
+import { NavbarComponent } from './navbar.component';
 
-describe('ApprentisGraphComponent', () => {
-  let component: ApprentisGraphComponent;
-  let fixture: ComponentFixture<ApprentisGraphComponent>;
+describe('NavbarComponent', () => {
+  let component: NavbarComponent;
+  let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ApprentisGraphComponent]
+      imports: [NavbarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ApprentisGraphComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

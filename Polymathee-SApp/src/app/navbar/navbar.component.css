@@ -1,0 +1,21 @@
+/* Personnalisation des icônes */
+.pi {
+    margin-right: 8px;
+}
+
+.p-menubar {
+    background-color: #007bff;
+}
+
+.p-menubar .p-menuitem {
+    color: white;
+}
+
+.p-menubar .p-menuitem:hover {
+    background-color: #0056b3;
+}
+
+.p-menubar .p-menuitem-link {
+    font-size: 16px;
+    font-weight: bold;
+}

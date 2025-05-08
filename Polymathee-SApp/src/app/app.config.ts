@@ -5,8 +5,6 @@ import { provideHttpClient } from '@angular/common/http'; // Importez provideHtt
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { ApprentisGraphComponent } from './apprentis-graph/apprentis-graph.component';
-import { ApprentisComponent } from './apprentis/apprentis.component';
 import { MostCommonSpecialtiesComponent } from './most-common-specialties/most-common-specialties.component'
 import { TopSchoolsComponent } from './top-schools/top-schools.component'
 import { VilleJeunesComponent } from './ville-jeunes/ville-jeunes.component'
@@ -15,15 +13,12 @@ import { OrganismesGestionComponent } from './organismes-gestion/organismes-gest
 import { SpecialitesHandicapComponent } from './specialites-handicap/specialites-handicap.component'
 
 const appRoutes: Routes = [
-  { path: 'apprentis', component: ApprentisComponent }, // Ajoutez cette nouvelle route
   { path: 'specialites-plus-courantes', component: MostCommonSpecialtiesComponent },
   { path: 'top-etablissements', component: TopSchoolsComponent },
   { path: 'ville-jeunes', component: VilleJeunesComponent },
   { path: 'duree-formation', component: DureeFormationComponent },
   { path: 'organismes-gestion', component: OrganismesGestionComponent },
   { path: 'specialite-handicap', component: SpecialitesHandicapComponent },
-
-
 ];
 
 export const appConfig: ApplicationConfig = {
