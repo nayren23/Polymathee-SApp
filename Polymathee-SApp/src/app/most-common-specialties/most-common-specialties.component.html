@@ -1,60 +1,79 @@
-<div class="card">
-    <p-table #dt [value]="specialties" dataKey="libelle_specialite" [paginator]="true" [rows]="10"
-        [rowsPerPageOptions]="[10, 25, 50]" [globalFilterFields]="['type_diplome', 'libelle_specialite']"
-        [loading]="loading" [tableStyle]="{ 'min-width': '60rem' }">
-        <!-- Barre de recherche -->
-        <ng-template pTemplate="caption">
-            <div class="flex">
-                <p-iconfield iconPosition="left" class="ml-auto">
-                    <p-inputicon>
-                        <i class="pi pi-search"></i>
-                    </p-inputicon>
-                    <!--     <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
-                        placeholder="Rechercher un mot-clé" />-->
-                </p-iconfield>
-            </div>
-        </ng-template>
+<div class="p-5">
+    <!-- Section Titre + Description + Image -->
+    <div class="text-center mb-6">
+        <h2 class="text-3xl font-semibold text-blue-700 mb-2" style="text-align: center;">
+            Spécialités les plus courantes par type de diplôme
+        </h2>
+        <p class="text-gray-600 text-md max-w-2xl mx-auto mb-4" style="text-align: center;">
+            Cette analyse présente les spécialités les plus fréquemment associées à chaque type de diplôme dans le cadre
+            de l'apprentissage.
+        </p>
+    </div>
 
-        <!-- En-tête du tableau -->
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Type de Diplôme</th>
-                <th>Spécialité</th>
-                <th>Nombre de Formations</th>
-            </tr>
-            <tr>
-                <th>
-                    <p-columnFilter type="text" field="type_diplome" placeholder="Filtrer par diplôme"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="libelle_specialite"
-                        placeholder="Filtrer par spécialité"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="numeric" field="nombre_formations" placeholder="Min / Max"
-                        display="menu"></p-columnFilter>
-                </th>
-            </tr>
-        </ng-template>
+    <!-- Graphique (Doughnut) des statistiques des formations -->
+    <div class="card flex justify-center mb-12">
+        <p-chart type="doughnut" [data]="data" [options]="options" class="max-width: 10rem; width: 100%" />
+    </div>
+    <div class="card flex justify-center mb-12" style="display: none;">
+        <p-chart type="doughnut" [data]="data" [options]="options" width="100%" height="100%" />
+    </div>
 
-        <!-- Corps du tableau -->
-        <ng-template pTemplate="body" let-apprenti>
-            <tr>
-                <td>{{ apprenti.type_diplome }}</td>
-                <td>{{ apprenti.libelle_specialite }}</td>
-                <td>{{ apprenti.nombre_formations }}</td>
-            </tr>
-        </ng-template>
+    <div class="card mt-6">
+        <p-table #dt [value]="specialties" dataKey="libelle_specialite" [paginator]="true" [rows]="10"
+            [rowsPerPageOptions]="[10, 25, 50]" [globalFilterFields]="['type_diplome', 'libelle_specialite']"
+            [loading]="loading" [tableStyle]="{ 'min-width': '60rem' }">
+            <!-- Barre de recherche -->
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <p-iconfield iconPosition="left" class="ml-auto">
+                        <p-inputicon>
+                            <i class="pi pi-search"></i>
+                        </p-inputicon>
+                    </p-iconfield>
+                </div>
+            </ng-template>
 
-        <!-- Message si aucune donnée -->
-        <ng-template pTemplate="emptymessage">
-            <tr>
-                <td colspan="3">Aucune donnée trouvée.</td>
-            </tr>
-        </ng-template>
-    </p-table>
+            <!-- En-tête du tableau -->
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Type de Diplôme</th>
+                    <th>Spécialité</th>
+                    <th>Nombre de Formations</th>
+                </tr>
+                <tr>
+                    <th>
+                        <p-columnFilter type="text" field="type_diplome"
+                            placeholder="Filtrer par diplôme"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="text" field="libelle_specialite"
+                            placeholder="Filtrer par spécialité"></p-columnFilter>
+                    </th>
+                    <th>
+                        <p-columnFilter type="numeric" field="nombre_formations" placeholder="Min / Max"
+                            display="menu"></p-columnFilter>
+                    </th>
+                </tr>
+            </ng-template>
+
+            <!-- Corps du tableau -->
+            <ng-template pTemplate="body" let-specialtie>
+                <tr>
+                    <td>{{ specialtie.type_diplome }}</td>
+                    <td>{{ specialtie.libelle_specialite }}</td>
+                    <td>{{ specialtie.nombre_formations }}</td>
+                </tr>
+            </ng-template>
+
+            <!-- Message si aucune donnée -->
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="3">Aucune donnée trouvée.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>
-
 
 
 
