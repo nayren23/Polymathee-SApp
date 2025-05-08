@@ -1,0 +1,12 @@
+.footer {
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    margin-top: 2rem;
+}
+
+.footer img {
+    vertical-align: middle;
+    border-radius: 20px;
+    width: 40px;
+}

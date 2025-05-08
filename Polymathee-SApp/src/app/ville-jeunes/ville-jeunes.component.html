@@ -11,15 +11,12 @@
         Si aucune donnée n'est disponible pour la combinaison choisie, un message vous en informera.
     </p>
 
-
     <div class="flex justify-center gap-4 items-end">
-
         <p-dropdown [options]="diplomes" [(ngModel)]="selectedDiplome" placeholder="Sélectionner un diplôme"
             [showClear]="true"></p-dropdown>
 
         <p-dropdown [options]="annees" [(ngModel)]="selectedAnnee" placeholder="Sélectionner une année"
             [showClear]="true"></p-dropdown>
-
     </div>
 
     <div>
@@ -27,11 +24,10 @@
             [disabled]="!selectedDiplome || !selectedAnnee"></button>
     </div>
 
-    <!-- Affichage du message si aucune donnée n'est disponible -->
-    <div *ngIf="noData" class="alert alert-warning">
-        <p-message severity="warn">Attention aucune donnée disponible pour cette sélection.</p-message>
+
+    <div class="flex justify-content-center mt-4">
+        <p-chart *ngIf="!noData" type="radar" [data]="radarChartData" class="w-6 align-items-center"></p-chart>
     </div>
-    <p-chart *ngIf="!noData" type="radar" [data]="radarChartData" style="max-width: 700px;"></p-chart>
 
     <div class="card" *ngIf="this.villesData.length > 0">
 
@@ -67,5 +63,9 @@
                 </tr>
             </ng-template>
         </p-table>
+    </div>
+    <!-- Affichage du message si aucune donnée n'est disponible -->
+    <div *ngIf="noData" class="alert alert-warning">
+        <p-message severity="warn">Attention aucune donnée disponible pour cette sélection.</p-message>
     </div>
 </div>
