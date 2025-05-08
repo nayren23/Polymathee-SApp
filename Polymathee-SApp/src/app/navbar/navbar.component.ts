@@ -16,6 +16,11 @@ export class NavbarComponent {
 
   items = [
     {
+      label: 'Accueil',
+      icon: 'pi pi-home', // Icône pour Spécialités
+      command: () => this.router.navigate([''])
+    },
+    {
       label: 'Spécialités Plus Courantes',
       icon: 'pi pi-bookmark', // Icône pour Spécialités
       command: () => this.router.navigate(['/specialites-plus-courantes'])

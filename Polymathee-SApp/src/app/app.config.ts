@@ -11,8 +11,10 @@ import { VilleJeunesComponent } from './ville-jeunes/ville-jeunes.component'
 import { DureeFormationComponent } from './duree-formation/duree-formation.component'
 import { OrganismesGestionComponent } from './organismes-gestion/organismes-gestion.component'
 import { SpecialitesHandicapComponent } from './specialites-handicap/specialites-handicap.component'
+import { HomeComponent } from './home/home.component'
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'specialites-plus-courantes', component: MostCommonSpecialtiesComponent },
   { path: 'top-etablissements', component: TopSchoolsComponent },
   { path: 'ville-jeunes', component: VilleJeunesComponent },

@@ -1,0 +1,58 @@
+<div class="flex flex-column gap-6 p-6">
+    <!-- Titre principal -->
+    <p-card>
+        <h1 class="text-3xl font-bold mb-2">Projet APP RS1 – Analyse des Données d’Apprentissage</h1>
+        <p class="text-lg text-secondary">Un projet dirigé par M. Bougueroua visant à explorer les données de formation
+            par apprentissage en Île-de-France.</p>
+    </p-card>
+
+    <!-- Description du projet -->
+    <p-card header="Objectifs du Projet">
+        <p class="text-base">
+            Ce projet, réalisé en groupe de 4, exploite des données publiques sur l’apprentissage en créant une base de
+            données relationnelle, des requêtes SQL adaptées et une interface de visualisation moderne.
+        </p>
+        <p class="mt-2">Lien vers les données :
+            <a href="https://www.data.gouv.fr/fr/datasets/apprentissage-effectifs-detailles-2008-2009-idf/"
+                target="_blank" class="text-primary underline">
+                data.gouv.fr – Apprentissage
+            </a>
+        </p>
+    </p-card>
+
+    <!-- Tâches clés -->
+    <p-card header="Éléments demandés">
+        <ul class="list-disc pl-4">
+            <li>Description détaillée du projet et des besoins</li>
+            <li>Modèle Entité-Association (MERISE)</li>
+            <li>Services et requêtes SQL correspondant à des problématiques métier</li>
+            <li>Visualisations de données (via PrimeNG Charts)</li>
+            <li>Interface utilisateur fonctionnelle en Angular / Flask</li>
+        </ul>
+    </p-card>
+
+    <!-- Plan du livrable -->
+    <p-card header="Contenu attendu pour la soutenance">
+        <ol class="list-decimal pl-4">
+            <li>Présentation de l’équipe (tâches + participation)</li>
+            <li>Modèle Conceptuel de Données final</li>
+            <li>Statistiques de la base (nombre d’années et d’enregistrements)</li>
+            <li>Retour d’expérience et méthodes utilisées (scripts, outils, difficultés...)</li>
+            <li>Requêtes SQL avec opérateurs avancés et interprétation des résultats</li>
+        </ol>
+    </p-card>
+
+    <!-- Timeline PrimeNG -->
+    <p-card header="Déroulé du projet">
+        <p-timeline [value]="timelineEvents" class="customized-timeline">
+            <ng-template pTemplate="marker" let-event>
+                <span class="custom-marker bg-primary text-white">{{ event.icon }}</span>
+            </ng-template>
+            <ng-template pTemplate="content" let-event>
+                <div class="text-base font-semibold mb-1">{{ event.title }}</div>
+                <p class="m-0 text-sm">{{ event.detail }}</p>
+            </ng-template>
+        </p-timeline>
+    </p-card>
+
+</div>
