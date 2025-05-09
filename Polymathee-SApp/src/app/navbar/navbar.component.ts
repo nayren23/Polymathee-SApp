@@ -31,11 +31,11 @@ export class NavbarComponent {
       icon: 'pi pi-building', // Icône pour Établissements
       command: () => this.router.navigate(['/top-etablissements'])
     },
-    {
-      label: 'Ville des Jeunes',
-      icon: 'pi pi-map', // Icône pour Ville des Jeunes
-      command: () => this.router.navigate(['/ville-jeunes'])
-    },
+    /*  {
+        label: 'Ville des Jeunes',
+        icon: 'pi pi-map', // Icône pour Ville des Jeunes
+        command: () => this.router.navigate(['/ville-jeunes'])
+      },*/
     {
       label: 'Durée de Formation',
       icon: 'pi pi-clock', // Icône pour Durée de Formation
