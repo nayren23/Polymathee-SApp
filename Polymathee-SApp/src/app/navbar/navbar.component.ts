@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
+import { ImageModule } from 'primeng/image';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule],
+  imports: [MenubarModule, ImageModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
