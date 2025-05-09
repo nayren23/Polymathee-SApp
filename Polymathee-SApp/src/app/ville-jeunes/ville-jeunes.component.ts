@@ -19,9 +19,9 @@ import { MessageModule } from 'primeng/message';
 
 export class VilleJeunesComponent implements OnInit {
   diplomes: string[] = [];
+  annees: string[] = [];
   selectedDiplome: string = '';
   selectedAnnee: string = '';
-  annees: string[] = ['2023-2024', '2024-2025', '2025-2026']; // Faudra les récupérer dans la bdd.
   villesData: any[] = [];
   radarChartData: any;
   loading = false;
@@ -31,12 +31,23 @@ export class VilleJeunesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDiplomas()
+    this.getAnnee()
+  }
+
+  getAnnee(): void {
+    this.apiService.getAnneScolaire().subscribe({
+      next: (data) => {
+        this.annees = data.map((anneesObj: { annee: string }) => anneesObj.annee)
+      },
+      error: (error) => {
+        console.error('Erreur API:', error)
+      }
+    });
   }
 
   getDiplomas(): void {
     this.apiService.getDiplomas().subscribe({
       next: (data) => {
-        //this.diplomes = data;
         this.diplomes = data.map((diplomeObj: { diplome: string }) => diplomeObj.diplome);
       },
       error: (error) => {

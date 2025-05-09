@@ -20,14 +20,25 @@ export class SpecialitesHandicapComponent implements OnInit {
   specialitesHandicapData: any[] = [];
   radarChartData: ChartData | undefined;
   loading: boolean = true;
-  annees: string[] = ['2023-2024', '2024-2025', '2025-2026'];
+  annees: string[] = [];
   selectedAnnee: string = '';
   noData = false;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    // Appel de la fonction pour récupérer les données de la spécialité (seulement lorsque l'année est sélectionnée)
+    this.getAnnee()
+  }
+
+  getAnnee(): void {
+    this.apiService.getAnneScolaire().subscribe({
+      next: (data) => {
+        this.annees = data.map((anneesObj: { annee: string }) => anneesObj.annee)
+      },
+      error: (error) => {
+        console.error('Erreur API:', error)
+      }
+    });
   }
 
   fetchSpecialitesHandicap() {
