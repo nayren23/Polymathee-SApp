@@ -27,7 +27,17 @@ export class OrganismesGestionComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    // Vous pouvez choisir d'appeler fetchOrganismesGestion directement ici ou attendre l'action de l'utilisateur
+    this.getAnnee()
+  }
+  getAnnee(): void {
+    this.apiService.getAnneScolaire().subscribe({
+      next: (data) => {
+        this.annees = data.map((anneesObj: { annee: string }) => anneesObj.annee)
+      },
+      error: (error) => {
+        console.error('Erreur API:', error)
+      }
+    });
   }
 
   fetchOrganismesGestion() {

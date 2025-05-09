@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
+import { ImageModule } from 'primeng/image';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule],
+  imports: [MenubarModule, ImageModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -30,11 +31,11 @@ export class NavbarComponent {
       icon: 'pi pi-building', // Icône pour Établissements
       command: () => this.router.navigate(['/top-etablissements'])
     },
-    {
-      label: 'Ville des Jeunes',
-      icon: 'pi pi-map', // Icône pour Ville des Jeunes
-      command: () => this.router.navigate(['/ville-jeunes'])
-    },
+    /*  {
+        label: 'Ville des Jeunes',
+        icon: 'pi pi-map', // Icône pour Ville des Jeunes
+        command: () => this.router.navigate(['/ville-jeunes'])
+      },*/
     {
       label: 'Durée de Formation',
       icon: 'pi pi-clock', // Icône pour Durée de Formation

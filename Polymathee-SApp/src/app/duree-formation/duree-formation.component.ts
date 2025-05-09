@@ -23,13 +23,25 @@ export class DureeFormationComponent implements OnInit {
   dureeFormationData: any[] = [];
   radarChartData: ChartData | undefined;
   loading: boolean = true;
-  annees: string[] = ['2023-2024', '2024-2025', '2025-2026']; // Faudra les récupérer dans la bdd.
+  annees: string[] = []; // Faudra les récupérer dans la bdd.
   selectedAnnee: string = '';
   noData = false
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.getAnnee()
+  }
+
+  getAnnee(): void {
+    this.apiService.getAnneScolaire().subscribe({
+      next: (data) => {
+        this.annees = data.map((anneesObj: { annee: string }) => anneesObj.annee)
+      },
+      error: (error) => {
+        console.error('Erreur API:', error)
+      }
+    });
   }
 
   fetchDureeFormation() {
