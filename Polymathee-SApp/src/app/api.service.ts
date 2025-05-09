@@ -6,7 +6,7 @@ import { Observable } from 'rxjs'; // Pour gérer les réponses asynchrones
   providedIn: 'root', // Le service sera singleton dans toute l'application
 })
 export class ApiService {
-  private apiUrl = 'https://127.0.0.1:5050'; // L'URL de votre API Flask
+  private apiUrl = 'http://127.0.0.1:5050'; // L'URL de votre API Flask
 
   constructor(private http: HttpClient) { }
 
